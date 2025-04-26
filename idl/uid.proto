@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package uid;
+option go_package = "/uid";
+service UidService{
+
+  rpc UidGen(Empty) returns (Uid);
+}
+
+message Empty {
+
+}
+
+message Uid {
+  string uid = 1;
+}
