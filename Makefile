@@ -5,3 +5,4 @@ gen-server-suyiiyii: ## gen service code of {svc}. example: make gen-server svc=
 
 cwgo server -type RPC --service user --module "rpc102/app/user" -I ../../idl  --idl ../../idl/user.proto --template https://github.com/suyiiyii/cwgo-template.git
 cwgo client -type RPC --service user --module "rpc102/app/uid" -I ../../idl  --idl ../../idl/uid.proto --template https://github.com/suyiiyii/cwgo-template.git
+cwgo server -type RPC --service user --module "rpc102/app/uid" -I ../../idl  --idl ../../idl/uid.proto --template https://github.com/suyiiyii/cwgo-template.git
