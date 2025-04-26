@@ -5,9 +5,9 @@ import (
 	"github.com/doutokk/doutok/common/serversuite"
 	"net"
 	"os"
-
 	"rpc102/app/user/biz/dal"
 	"rpc102/app/user/conf"
+	"rpc102/app/user/infra/rpc"
 	"rpc102/app/user/kitex_gen/user/userservice"
 
 	"github.com/cloudwego/kitex/pkg/klog"
@@ -22,6 +22,7 @@ func main() {
 	// use `go run cmd/gorm_gen/main.go` to generate the code
 	//query.SetDefault(mysql.DB)
 	opts := kitexInit()
+	rpc.Init()
 
 	svr := userservice.NewServer(new(UserServiceImpl), opts...)
 
@@ -29,6 +30,7 @@ func main() {
 	if err != nil {
 		klog.Error(err.Error())
 	}
+
 }
 
 func kitexInit() (opts []server.Option) {

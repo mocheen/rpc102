@@ -2,6 +2,8 @@ package service
 
 import (
 	"context"
+	"fmt"
+	"rpc102/app/user/infra/rpc"
 	user "rpc102/app/user/kitex_gen/user"
 )
 
@@ -15,12 +17,10 @@ func NewLoginService(ctx context.Context) *LoginService {
 }
 
 // Run create note info
-func (s *LoginService) Run(req *user.LoginReq) (resp *user.LoginResp, err error) {
+func (s *LoginService) Run(req *user.LoginReq) (err error) {
 	// Finish your business logic.
 
-	r := &user.LoginResp{
-		Token: "11111",
-		Roles: []string{"ddd"},
-	}
-	return r, nil
+	fmt.Println("login is success")
+	rpc.Client
+
 }

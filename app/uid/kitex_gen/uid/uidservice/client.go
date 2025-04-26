@@ -6,7 +6,8 @@ import (
 	"context"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"
-	uid "rpc102/app/uid/kitex_gen/uid"
+	uid "rpc102/app/uid/kitex_gen/uid"user "rpc102/app/user/kitex_gen/user"
+
 )
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.
@@ -14,7 +15,17 @@ type Client interface {
 	UidGen(ctx context.Context, Req *uid.Empty, callOptions ...callopt.Option) (r *uid.Uid, err error)
 }
 
-// NewClient creates a client for the service defined in IDL.
+func (c Client) Register(ctx context.Context, Req *user.RegisterReq, callOptions ...callopt.Option) (r *user.RegisterResp, err error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (c Client) Login(ctx context.Context, Req *user.LoginReq, callOptions ...callopt.Option) (r *user.LoginResp, err error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+// NewClient creates a rpc for the service defined in IDL.
 func NewClient(destService string, opts ...client.Option) (Client, error) {
 	var options []client.Option
 	options = append(options, client.WithDestService(destService))
@@ -30,7 +41,7 @@ func NewClient(destService string, opts ...client.Option) (Client, error) {
 	}, nil
 }
 
-// MustNewClient creates a client for the service defined in IDL. It panics if any error occurs.
+// MustNewClient creates a rpc for the service defined in IDL. It panics if any error occurs.
 func MustNewClient(destService string, opts ...client.Option) Client {
 	kc, err := NewClient(destService, opts...)
 	if err != nil {

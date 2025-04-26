@@ -35,12 +35,12 @@ func serviceInfo() *kitex.ServiceInfo {
 	return uidServiceServiceInfo
 }
 
-// for client
+// for rpc
 func serviceInfoForStreamClient() *kitex.ServiceInfo {
 	return uidServiceServiceInfoForStreamClient
 }
 
-// for stream client
+// for stream rpc
 func serviceInfoForClient() *kitex.ServiceInfo {
 	return uidServiceServiceInfoForClient
 }
